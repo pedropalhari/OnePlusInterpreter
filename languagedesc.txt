@@ -1,0 +1,24 @@
+1+ operates only on an initially empty stack of non-negative integers (negative integers cannot be represented, and indeed ensure
+that the jumps work; see below). Twelve of the language's thirteen commands do something to the stack:
+
+1 pushes the number 1 onto the stack. This is the only literal; all other numbers are constructed with operators like INTERCAL does.
+Unlike INTERCAL, however, this restriction is derived from the concept of integer complexity, the minimum number of 1's needed to
+make a number n with only additions and multiplications.
+
+    + pops the top two numbers and pushes their sum.
+    * is the same as + but pushes the product instead.
+    " duplicates the top number.
+    / rotates the stack upward, sending the top number to the bottom.
+    \ is the inverse of /.
+    ^ swaps the top two numbers.
+    < pops the top two numbers and pushes 0 if the top number is less than the second-top number, 1 otherwise. This is the only conditional in 1+.
+    . and , read input as a number or Unicode character respectively and push that on.
+    : and ; are corresponding commands for output, popping the top value and printing it as a number or Unicode character respectively.
+
+# is the only control structure in 1+: it pops the top value n and sends program flow to immediately after the nth # in the current
+ line of execution (where numbering starts from 0).
+
+Subroutines are defined as (name|symbols) and are called as (name); they can call other subroutines or themselves
+(thereby implementing recursion) and the point where they are defined causes their execution too. They are separate lines of
+execution, so the numbering of #'s in them starts from 0. They are positioned within the overall program such that they never
+depend on a subroutine that is defined later on. Comments are placed in square brackets ([ ]). 
