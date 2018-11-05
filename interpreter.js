@@ -1,8 +1,6 @@
 const fs = require("fs");
 var readline = require("readline");
 
-const DEBUG = false;
-
 async function readStep() {
   return new Promise(resolve => {
     var rl = readline.createInterface({
@@ -32,6 +30,8 @@ function removeComments(text = "") {
 
   while (text.indexOf("\n") != -1) text = text.replace("\n", "");
 
+  while (text.indexOf("\r") != -1) text = text.replace("\r", "");
+
   do {
     start = text.indexOf("[");
     end = text.indexOf("]");
@@ -49,9 +49,9 @@ let comment = false;
     let command = program[PC++];
     let x, y;
 
-    if (DEBUG) {
-      await readStep();
-      console.log(`PC: ${PC}`);
+    if (parseInt(process.env.DEBUG)) {
+      if (parseInt(process.env.STEP)) await readStep();
+      console.log(`PC: ${PC - 1}`);
       console.log(`STACK: ${programStack}`);
       console.log(`COMMAND: ${command}`);
     }

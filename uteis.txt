@@ -1,0 +1,5 @@
+códigos uteis
+
+(if)
+
+"/1< [duplica, tira do topo, pusha o 1, volta ao topo, compara]

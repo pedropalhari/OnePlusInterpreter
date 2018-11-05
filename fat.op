@@ -1,0 +1,12 @@
+1 [resultado inicial]
+11+"+1+1+ [5 na stack]
+
+"/* [multiplica resultado pelo resto, duplicando o resto] [Posição 9 no program counter]
+
+1\- [subtrai o resto por 1]
+"/1\< [vê se é maior ou igual a 1]
+
+111++"+"+"+11+"+""""+++++ [jump -44]
+11+1-* [inverte]
+*# [beq]
+;;
