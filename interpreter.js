@@ -23,24 +23,7 @@ let functionMap = {};
 
 let PC = 0;
 
-function removeComments(text = "") {
-  let start, end;
-
-  while (text.indexOf(" ") != -1) text = text.replace(" ", "");
-
-  while (text.indexOf("\n") != -1) text = text.replace("\n", "");
-
-  while (text.indexOf("\r") != -1) text = text.replace("\r", "");
-
-  do {
-    start = text.indexOf("[");
-    end = text.indexOf("]");
-    text = text.substring(0, start) + text.substring(end + 1);
-  } while (start != -1);
-
-  return text;
-}
-
+checkStackFiller();
 program = removeComments(program);
 
 let comment = false;
@@ -133,14 +116,39 @@ let comment = false;
         console.log(x);
         break;
 
-        case ".":
-        case ",":
-          x = parseInt(await readStep());
-          programStack.push(x);
-          break;
+      case ".":
+      case ",":
+        x = parseInt(await readStep());
+        programStack.push(x);
+        break;
 
       default:
         break;
     }
   }
 })();
+
+function removeComments(text = "") {
+  let start, end;
+
+  while (text.indexOf(" ") != -1) text = text.replace(" ", "");
+
+  while (text.indexOf("\n") != -1) text = text.replace("\n", "");
+
+  while (text.indexOf("\r") != -1) text = text.replace("\r", "");
+
+  do {
+    start = text.indexOf("[");
+    end = text.indexOf("]");
+    text = text.substring(0, start) + text.substring(end + 1);
+  } while (start != -1);
+
+  return text;
+}
+
+function checkStackFiller() {
+  if (process.argv[3]) {
+    let stackFiller = fs.readFileSync(`${process.argv[3]}`).toString();
+    programStack = stackFiller.split("\n").map(a => parseInt(a));
+  }
+}
