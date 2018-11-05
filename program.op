@@ -1,4 +1,6 @@
-11111++++"+ [5]
+11111++++"+ [numero para ser decrementado no loop]
+
+[LOOP]
 "; [Posição 9, duplica a cabeça e printa] 
 1\- [Subtrai a cabeça por 1]
 1\ [coloca 1 na stack]
@@ -6,7 +8,7 @@
 < [vê se o topo é maior que 1]
 11+"+"+1+"""+++nnn [Coloca 36 na stack e alguns nops]
 11+1- [Coloca -1 na stack]
-*
-* [multiplica -9 pelo resultado do "<"]
+* [-36]
+* [multiplica -36 pelo resultado do "<"]
 # [joga no PC para voltar exatamente no começo do loop]
 
