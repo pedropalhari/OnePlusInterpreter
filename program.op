@@ -1,0 +1,12 @@
+11111++++ [5]
+"; [Posição 9, duplica a cabeça e printa] 
+1\- [Subtrai a cabeça por 1]
+1\ [coloca 1 na stack]
+"/ [faz a copia do topo]
+< [vê se o topo é maior que 1]
+11+"+"+1+"""+++nnn [Coloca 36 na stack e alguns nops]
+11+1- [Coloca -1 na stack]
+*
+* [multiplica -9 pelo resultado do "<"]
+# [joga no PC para voltar exatamente no começo do loop]
+
