@@ -10,7 +10,7 @@ async function readStep() {
     });
 
     rl.on("line", function(cmd) {
-      resolve();
+      resolve(cmd);
       rl.close();
     });
   });
@@ -132,6 +132,12 @@ let comment = false;
         x = programStack.pop();
         console.log(x);
         break;
+
+        case ".":
+        case ",":
+          x = parseInt(await readStep());
+          programStack.push(x);
+          break;
 
       default:
         break;
