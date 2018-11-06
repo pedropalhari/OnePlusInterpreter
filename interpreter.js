@@ -28,6 +28,8 @@ program = removeComments(program);
 
 let comment = false;
 (async () => {
+  let before = new Date();
+
   while (PC < program.length) {
     let command = program[PC++];
     let x, y;
@@ -126,6 +128,8 @@ let comment = false;
         break;
     }
   }
+
+  console.log(`Time: ${new Date() - before}ms`);
 })();
 
 function removeComments(text = "") {
