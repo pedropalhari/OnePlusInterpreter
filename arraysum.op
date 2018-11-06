@@ -1,0 +1,23 @@
+[Array carregado pelo Stack Filler]
+
+/ [Joga o numero de elementos pro fim da stack]
+11- [Coloca o resultado da soma começando com 0]
+\ [Volta pro topo]
+
+[Loop]
+/+ [Soma no resultado]
+
+
+1\- [Joga o número de elementos na stack pro topo e subtrai 1]
+
+"/1\< [Checa pra ver se é maior ou igual a 1]
+
+11+"+"+"+"+11+1-* [Endereço pra pular para o PC 3 (inicio do loop)]
+
+nnn [Nops para arrumar o endereço de jump]
+
+*# [Se for pula pro inicio do loop]
+
+\;
+
+
